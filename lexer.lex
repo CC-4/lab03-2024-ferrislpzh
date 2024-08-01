@@ -89,6 +89,26 @@ WHITE = (" "|\t|\n)
 
 <YYINITIAL>{SEMI}   { return new Token(Token.SEMI);   }
 
+"+" { return new Token(Token.PLUS); }
+
+"-" { return new Token(Token.MINUS); }
+
+"*" { return new Token(Token.MULT); }
+
+"/" { return new Token(Token.DIV); }
+
+[\\^] { return new Token(Token.EXP); }
+
+"%" { return new Token(Token.MOD); }
+
+"(" { return new Token(Token.LPAREN); }
+
+")" { return new Token(Token.RPAREN); }
+
+"~" { return new Token(Token.UNARY); }
+
+[0-9]+ { return new Token(Token.NUMBER, yytext()); }
+
 <YYINITIAL>{WHITE}  { /* NO HACER NADA */             }
 
 <YYINITIAL>.        { return new Token(Token.ERROR);

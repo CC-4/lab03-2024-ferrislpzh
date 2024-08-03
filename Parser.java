@@ -138,4 +138,40 @@ public class Parser {
     }
 
     /* TODO: sus otras funciones aqui */
+
+    private boolean E1() {
+        return E() && term(Token.PLUS) && E();
+    }
+
+    private boolean E2() {
+        return E() && term(Token.MINUS) && E();
+    }
+
+    private boolean E3() {
+        return E() && term(Token.MULT) && E();
+    }
+
+    private boolean E4() {
+        return E() && term(Token.DIV) && E();
+    }
+
+    private boolean E5() {
+        return E() && term(Token.MOD) && E();
+    }
+
+    private boolean E6() {
+        return E() && term(Token.EXP) && E();
+    }
+
+    private boolean E7() {
+        return term(Token.UNARY) && E();
+    }
+
+    private boolean E8() {
+        return term(Token.LPAREN) && E() && term(Token.RPAREN);
+    }
+
+    private boolean E9() {
+        return term(Token.NUMBER);
+    }
 }

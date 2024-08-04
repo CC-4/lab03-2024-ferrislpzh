@@ -134,41 +134,71 @@ public class Parser {
     }
 
     private boolean E() {
+        int save = next;
+        this.next = save;
+
+        next = save;
+        if ( E1() ) { return true; }
+
+        next = save;
+        if ( E2() ) { return true; }
+
+        next = save;
+        if ( E3() ) { return true; }
+
+        next = save;
+        if ( E4() ) { return true; }
+
+        next = save;
+        if ( E5() ) { return true; }
+
+        next = save;
+        if ( E6() ) { return true; }
+
+        next = save;
+        if ( E7() ) { return true; }
+
+        next = save;
+        if ( E8() ) { return true; }
+
+        next = save;
+        if ( E9() ) { return true; }
+
         return false;
     }
 
     /* TODO: sus otras funciones aqui */
 
     private boolean E1() {
-        return E() && term(Token.PLUS) && E();
+        return E() & term(Token.PLUS) & E();
     }
 
     private boolean E2() {
-        return E() && term(Token.MINUS) && E();
+        return E() & term(Token.MINUS) & E();
     }
 
     private boolean E3() {
-        return E() && term(Token.MULT) && E();
+        return E() & term(Token.MULT) & E();
     }
 
     private boolean E4() {
-        return E() && term(Token.DIV) && E();
+        return E() & term(Token.DIV) & E();
     }
 
     private boolean E5() {
-        return E() && term(Token.MOD) && E();
+        return E() & term(Token.MOD) & E();
     }
 
     private boolean E6() {
-        return E() && term(Token.EXP) && E();
+        return E() & term(Token.EXP) & E();
     }
 
     private boolean E7() {
-        return term(Token.UNARY) && E();
+        return term(Token.UNARY) & E();
     }
 
     private boolean E8() {
-        return term(Token.LPAREN) && E() && term(Token.RPAREN);
+        return term(Token.LPAREN) & E() & term(Token.RPAREN);
     }
 
     private boolean E9() {
